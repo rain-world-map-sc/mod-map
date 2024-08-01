@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rain World Map</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <meta property="og:image" content="https://alduris.github.io/rw-mod-map/embed.jpg" />
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="Rain World Map" />
+    <meta property="og:url" content="https://alduris.github.io/rw-mod-map/" />
+    <meta property="og:description" content="A custom, online interactive map for regions, vanilla or modded, in Rain World." />
+    <link rel="stylesheet" href="./rw.css" />
+
+    <script src="./global.js"></script>
+
+    <style>
+        :root {
+            --cols: 1;
+        }
+
+        /* big flex block of darkness */
+        body,
+        html {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* floaty in the center */
+        #main-menu {
+            margin: auto;
+        }
+
+        /* stuck to the bottom, custom link colors */
+        #main-menu-footer {
+            margin-bottom: 0.1em;
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.8em;
+            font-weight: 500;
+            color: #A9A4B2;
+            /* menu lightgray */
+            background-color: black;
+        }
+
+        #main-menu-footer a:link {
+            color: white;
+        }
+
+        #main-menu-footer a:visited {
+            color: #A9A4B2;
+            /* menu lightgray */
+        }
+
+        #regionlist {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+            max-width: 90vw;
+            
+            display: grid;
+            grid-template-columns: repeat(var(--cols), auto);
+            justify-items: center;
+            gap: 4px;
+        }
+
+        button.region-button {
+            position: relative;
+            width: 200px;
+            height: 40px;
+            background: black;
+        }
+
+        .difficulty-btn {
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            margin: 4px;
+            position: relative;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <form id="main-menu" action="map.html" method="get">
+        <div class="rw-title">Rain World</div>
+        <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">I'm lost in...</div>
+        <div id="regionlist"></div>
+		<input type="hidden" name="slugcat" value="white" required />
+
+        <script>
+            let regions = {};
+            const gap = 4;
+
+            function organizeColumns() {
+                const buttons = document.getElementsByClassName("region-button");
+                let numRegions = buttons.length;
+
+                // Return 1 if no regions
+                if (numRegions == 0) {
+                    console.log("No regions!");
+                    document.documentElement.style.setProperty("--cols", "1");
+                    return;
+                }
+
+                // Compute body size
+                const maxWidth = window.innerWidth * 0.9;
+                const idealHeight = window.innerHeight * 0.6;
+
+                // Compute size of buttons
+                const buttonBox = buttons[0].getBoundingClientRect();
+                const buttonWidth = buttonBox.width + gap;
+                const buttonHeight = buttonBox.height + gap;
+                const maxColumns = Math.floor(maxWidth / buttonWidth);
+                const idealMaxRows = Math.floor(idealHeight / buttonHeight);
+
+                // Figure out how many columns we can get away with
+                const idealColumns = Math.ceil(numRegions * buttonHeight / idealHeight);
+                document.documentElement.style.setProperty("--cols", Math.max(1, idealColumns > maxColumns ? maxColumns : idealColumns));
+
+                console.log(`Num regions: ${numRegions}
+Possible columns: ${maxColumns}
+Possible rows: ${idealMaxRows}
+Ideal number of columns: ${idealColumns}`);
+            }
+            window.addEventListener("resize", () => organizeColumns());
+
+            getJsonObject("regions.json", function(json) {
+                console.log(json);
+                regions = json;
+                let html = "";
+                for (const r in regions) {
+                    html += '<button class="region-button rw-ui rw-text" name="region" value="' + r + '">' + regions[r]["name"].toUpperCase() + '</button>';
+                }
+                document.getElementById('regionlist').innerHTML = html;
+                organizeColumns();
+            }, true);
+        </script>
+    </form>
+    <div id="main-menu-footer">Code on <a href="https://github.com/alduris/MapExporter">GitHub</a> |
+		<a href="https://henpemaz.github.io/Rain-World-Interactive-Map/">Original</a> by <a href="https://github.com/henpemaz/">Henpemaz</a> |
+		Ported by <a href="https://github.com/Dual-Iron/">Dual</a> |
+		Refined by <a href="https://github.com/NobleCat57/">JuliaCat</a> |
+		Current version by <a href="https://github.com/alduris/">Alduris</a> |
+		<a href="https://store.steampowered.com/app/312520/Rain_World/">Rain World</a> is property of <a href="https://twitter.com/VideocultMedia">Videocult</a>
+    </div>
+</body>
+
+</html>
