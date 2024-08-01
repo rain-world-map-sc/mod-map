@@ -10,7 +10,7 @@
     <meta property="og:image" content="https://alduris.github.io/rw-mod-map/embed.jpg" />
     <meta property="og:type" content="object" />
     <meta property="og:title" content="Rain World Map" />
-    <meta property="og:url" content="https://alduris.github.io/rw-mod-map/" />
+    <meta property="og:url" content="https://alduris.github.io/mod-map/" />
     <meta property="og:description" content="A custom, online interactive map for regions, vanilla or modded, in Rain World." />
     <link rel="stylesheet" href="./rw.css" />
     <link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -260,8 +260,8 @@
         var regions = {};
         var slugcats = [];
 
-        getJsonObject("regions.json", function (json) { regions = json; }, false);
-        getJsonObject("slugcats.json", function (json) { slugcats = json; }, false);
+        getJsonObject("modmap-data/regions.json", function (json) { regions = json; }, false);
+        getJsonObject("modmap-data/slugcats.json", function (json) { slugcats = json; }, false);
 
         var html = "";
         for (const r in regions) {
@@ -578,7 +578,7 @@
             region = pregion; // chaos
             console.log("Loading: region {" + region + "} on slugcat {" + pdifficulty + "}");
             var region_url = region.toLowerCase();
-            var roompath = `./slugcats/${pdifficulty}/${region_url}`;
+            var roompath = `./modmap-data/${pdifficulty}/${region_url}`;
             getJsonObject(`${roompath}/region.json`, function (json) {
                 var roomjson = json;
                 if ('copyingrooms' in json) {

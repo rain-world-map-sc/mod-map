@@ -10,7 +10,7 @@
     <meta property="og:image" content="https://alduris.github.io/rw-mod-map/embed.jpg" />
     <meta property="og:type" content="object" />
     <meta property="og:title" content="Rain World Map" />
-    <meta property="og:url" content="https://alduris.github.io/rw-mod-map/" />
+    <meta property="og:url" content="https://alduris.github.io/mod-map/" />
     <meta property="og:description" content="A custom, online interactive map for regions, vanilla or modded, in Rain World." />
     <link rel="stylesheet" href="./rw.css" />
 
@@ -135,7 +135,7 @@ Ideal number of columns: ${idealColumns}`);
             }
             window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("regions.json", function(json) {
+            getJsonObject("modmap-data/regions.json", function(json) {
                 console.log(json);
                 regions = json;
                 let html = "";
