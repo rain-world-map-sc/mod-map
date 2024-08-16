@@ -135,7 +135,7 @@ Ideal number of columns: ${idealColumns}`);
             }
             window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("https://alduris.github.io/modmap-data/regions.json", function(json) {
+            getJsonObject("regions.json", function(json) {
                 console.log(json);
                 regions = json;
                 let html = "";
