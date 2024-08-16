@@ -354,8 +354,8 @@
         var regions = {};
         var slugcats = [];
 
-        getJsonObject("modmap-data/regions.json", function (json) { regions = json; }, false);
-        getJsonObject("modmap-data/slugcats.json", function (json) { slugcats = json; }, false);
+        getJsonObject("https://alduris.github.io/modmap-data/regions.json", function (json) { regions = json; }, false);
+        getJsonObject("https://alduris.github.io/modmap-data/slugcats.json", function (json) { slugcats = json; }, false);
 
         var html = "";
         var regionListSorted = Object.keys(regions).sort((a, b) => regions[a]["name"].toUpperCase().localeCompare(regions[b]["name"].toUpperCase()));
@@ -596,7 +596,7 @@
                 console.error(e);
             }
             var region_url = region.toLowerCase();
-            var roompath = `./modmap-data/${pdifficulty}/${region_url}`;
+            var roompath = `https://alduris.github.io/modmap-data/${pdifficulty}/${region_url}`;
             getJsonObject(`${roompath}/region.json`, function (json) {
                 var roomjson = json;
                 if ('copyingrooms' in json) {
