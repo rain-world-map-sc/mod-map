@@ -595,14 +595,13 @@
             } catch (e) {
                 console.error(e);
             }
-            var region_url = region.toLowerCase();
-            var roompath = `https://alduris.github.io/modmap-data-${pdifficulty}/${region_url}`;
+            var roompath = `https://alduris.github.io/modmap-data-${pdifficulty}/${region}`;
             getJsonObject(`${roompath}/region.json`, function (json) {
                 var roomjson = json;
                 if ('copyingrooms' in json) {
-                    getJsonObject(`${roompath}/${region_url}/region.json`, function (copyjson) {
+                    getJsonObject(`${roompath}/${region}/region.json`, function (copyjson) {
                         roomjson = copyjson;
-                        roompath = `${roompath}/${region_url}`;
+                        roompath = `${roompath}/${region}`;
                     }, false);
                 }
 
@@ -715,7 +714,7 @@
                                         tooltip += "🚿";
                                     }
 
-                                    var path = "./resources/creatures/" + spawn.lineage[i] + ".png";
+                                    var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry">
                                         <img class="icon-image" src="${path}"/>
@@ -733,7 +732,7 @@
                                     tooltip += "🚿";
                                 }
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
-                                    <img class="icon-image" src="./resources/creatures/${spawn.creature}.png"/>
+                                    <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
                                     <div class="icon-tooltip">${tooltip}</div>
                                     </div>`;
