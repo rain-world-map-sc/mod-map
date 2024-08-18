@@ -714,7 +714,7 @@
                                         tooltip += "🚿";
                                     }
 
-                                    var path = "./resources/creatures/" + spawn.lineage[i] + ".png";
+                                    var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry">
                                         <img class="icon-image" src="${path}"/>
@@ -732,7 +732,7 @@
                                     tooltip += "🚿";
                                 }
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
-                                    <img class="icon-image" src="./resources/creatures/${spawn.creature}.png"/>
+                                    <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
                                     <div class="icon-tooltip">${tooltip}</div>
                                     </div>`;
