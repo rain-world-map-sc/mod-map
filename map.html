@@ -595,14 +595,13 @@
             } catch (e) {
                 console.error(e);
             }
-            var region_url = region.toLowerCase();
-            var roompath = `https://alduris.github.io/modmap-data-${pdifficulty}/${region_url}`;
+            var roompath = `https://alduris.github.io/modmap-data-${pdifficulty}/${region}`;
             getJsonObject(`${roompath}/region.json`, function (json) {
                 var roomjson = json;
                 if ('copyingrooms' in json) {
-                    getJsonObject(`${roompath}/${region_url}/region.json`, function (copyjson) {
+                    getJsonObject(`${roompath}/${region}/region.json`, function (copyjson) {
                         roomjson = copyjson;
-                        roompath = `${roompath}/${region_url}`;
+                        roompath = `${roompath}/${region}`;
                     }, false);
                 }
 
