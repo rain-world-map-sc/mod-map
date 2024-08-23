@@ -1,111 +1,562 @@
 {
   "AK": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "Curious Ascent",
-    "specificNames": ["Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent", "Curious Ascent"]
+    "specificNames": [
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent",
+      "Curious Ascent"
+    ]
   },
   "AB": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "Arid Barrens",
-    "specificNames": ["Arid Barrens", "Windswept Barrens", "Arid Barrens", "Arid Barrens", "Arid Barrens", "Arid Barrens", "Arid Barrens", "Frigid Desert", "Miros World"]
+    "specificNames": [
+      "Arid Barrens",
+      "Windswept Barrens",
+      "Arid Barrens",
+      "Arid Barrens",
+      "Arid Barrens",
+      "Arid Barrens",
+      "Arid Barrens",
+      "Frigid Desert",
+      "Miros World"
+    ]
   },
   "BL": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "Badlands",
-    "specificNames": ["Badlands", "Badlands", "Badlands", "Badlands", "Badlands", "Badlands", "Badlands", "Archaic Tundra", "Badlands"]},
+    "specificNames": [
+      "Badlands",
+      "Badlands",
+      "Badlands",
+      "Badlands",
+      "Badlands",
+      "Badlands",
+      "Badlands",
+      "Archaic Tundra",
+      "Badlands"
+    ]
+  },
   "BY": {
-    "slugcats": ["red", "saint", "inv", "gourmand", "artificer", "yellow", "white", "rivulet", "spear"],
+    "slugcats": [
+      "red",
+      "saint",
+      "inv",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "white",
+      "rivulet",
+      "spear"
+    ],
     "name": "Purification Conduits",
-    "specificNames": ["Purification Conduits", "Sterile Waterworks", "Purification Conduits", "Purification Conduits", "Purification Conduits", "Purification Conduits", "Purification Conduits", "Purification Conduits", "Purification Conduits"]
+    "specificNames": [
+      "Purification Conduits",
+      "Sterile Waterworks",
+      "Purification Conduits",
+      "Purification Conduits",
+      "Purification Conduits",
+      "Purification Conduits",
+      "Purification Conduits",
+      "Purification Conduits",
+      "Purification Conduits"
+    ]
   },
   "CW": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "inv"
+    ],
     "name": "Chasing Wind",
-    "specificNames": ["Chasing Wind", "Chasing Wind", "Chasing Wind", "Chasing Wind", "Chasing Wind", "Chasing Wind", "Chasing Wind", "Chasing Wind"]
+    "specificNames": [
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind",
+      "Chasing Wind"
+    ]
   },
   "FR": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "Far Shore",
-    "specificNames": ["Far Shore", "Far Shore", "Far Shore", "Far Shore", "Far Shore", "Far Shore", "Far Shore", "Lost Strand", "Far Shore"]
+    "specificNames": [
+      "Far Shore",
+      "Far Shore",
+      "Far Shore",
+      "Far Shore",
+      "Far Shore",
+      "Far Shore",
+      "Far Shore",
+      "Lost Strand",
+      "Far Shore"
+    ]
   },
   "DW": {
-    "slugcats": ["white", "yellow", "red"],
+    "slugcats": [
+      "white",
+      "yellow",
+      "red"
+    ],
     "name": "Deserted Wastelands",
-    "specificNames": ["Deserted Wastelands", "Deserted Wastelands", "Deserted Wastelands"]
+    "specificNames": [
+      "Deserted Wastelands",
+      "Deserted Wastelands",
+      "Deserted Wastelands"
+    ]
   },
   "FT": {
-    "slugcats": ["white", "yellow", "red", "rivulet", "artificer", "spear", "gourmand", "inv"],
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
     "name": "Forsaken Station",
-    "specificNames": ["Forsaken Station", "Forsaken Station", "Forsaken Station", "Forsaken Station", "Forsaken Station", "Forsaken Station", "Forsaken Station", "Forsaken Station"]
+    "specificNames": [
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station",
+      "Forsaken Station"
+    ]
   },
   "GH": {
-    "slugcats": ["inv", "saint", "red", "yellow", "artificer", "gourmand", "spear", "rivulet", "white"],
+    "slugcats": [
+      "inv",
+      "saint",
+      "red",
+      "yellow",
+      "artificer",
+      "gourmand",
+      "spear",
+      "rivulet",
+      "white"
+    ],
     "name": "Hanging Gardens",
-    "specificNames": ["Hanging Gardens", "Enduring Sanctuary", "Hanging Gardens", "Hanging Gardens", "Hanging Gardens", "Hanging Gardens", "Hanging Gardens", "Hanging Gardens", "Hanging Gardens"]
+    "specificNames": [
+      "Hanging Gardens",
+      "Enduring Sanctuary",
+      "Hanging Gardens",
+      "Hanging Gardens",
+      "Hanging Gardens",
+      "Hanging Gardens",
+      "Hanging Gardens",
+      "Hanging Gardens",
+      "Hanging Gardens"
+    ]
   },
   "GS": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "inv", "saint"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "inv",
+      "saint"
+    ],
     "name": "Gilded Sanctuary",
-    "specificNames": ["Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary", "Gilded Sanctuary"]
+    "specificNames": [
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary",
+      "Gilded Sanctuary"
+    ]
   },
   "HC": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "inv", "red"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "inv",
+      "red"
+    ],
     "name": "Howling Rift",
-    "specificNames": ["Howling Rift", "Howling Rift", "Howling Rift", "Howling Rift", "Howling Rift", "Howling Rift", "Howling Rift", "Howling Rift"]
+    "specificNames": [
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift",
+      "Howling Rift"
+    ]
   },
   "LW": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "red", "yellow", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "red",
+      "yellow",
+      "inv"
+    ],
     "name": "Lush Mire",
-    "specificNames": ["Lush Mire", "Lush Mire", "Lush Mire", "Lush Mire", "Lush Mire", "Lush Mire", "Lush Mire", "Lush Mire"]
+    "specificNames": [
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire",
+      "Lush Mire"
+    ]
   },
   "MF": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "inv"
+    ],
     "name": "Moss Fields",
-    "specificNames": ["Moss Fields", "Moss Fields", "Moss Fields", "Moss Fields", "Moss Fields", "Moss Fields", "Moss Fields", "Moss Fields"]
+    "specificNames": [
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields",
+      "Moss Fields"
+    ]
   },
   "NF": {
-    "slugcats": ["saint"],
+    "slugcats": [
+      "saint"
+    ],
     "name": "Neuron Forest",
-    "specificNames": ["Neuron Forest"]
+    "specificNames": [
+      "Neuron Forest"
+    ]
   },
   "RA": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "The radiosphere",
-    "specificNames": ["The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere", "The radiosphere"]
+    "specificNames": [
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere",
+      "The radiosphere"
+    ]
   },
   "RF": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "saint", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "saint",
+      "inv"
+    ],
     "name": "Coral Caves",
-    "specificNames": ["Coral Caves", "Coral Caves", "Coral Caves", "Coral Caves", "Coral Caves", "Coral Caves", "Coral Caves", "Bleached Grotto", "Coral Caves"]
+    "specificNames": [
+      "Coral Caves",
+      "Coral Caves",
+      "Coral Caves",
+      "Coral Caves",
+      "Coral Caves",
+      "Coral Caves",
+      "Coral Caves",
+      "Bleached Grotto",
+      "Coral Caves"
+    ]
   },
   "SD": {
-    "slugcats": ["white", "rivulet", "spear", "gourmand", "artificer", "yellow", "red", "inv"],
+    "slugcats": [
+      "white",
+      "rivulet",
+      "spear",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "red",
+      "inv"
+    ],
     "name": "Scorched District",
-    "specificNames": ["Scorched District", "Scorched District", "Scorched District", "Scorched District", "Scorched District", "Scorched District", "Scorched District", "Scorched District"]
+    "specificNames": [
+      "Scorched District",
+      "Scorched District",
+      "Scorched District",
+      "Scorched District",
+      "Scorched District",
+      "Scorched District",
+      "Scorched District",
+      "Scorched District"
+    ]
   },
   "SK": {
-    "slugcats": ["inv", "saint", "red", "yellow", "artificer", "gourmand", "spear", "rivulet", "white"],
+    "slugcats": [
+      "inv",
+      "saint",
+      "red",
+      "yellow",
+      "artificer",
+      "gourmand",
+      "spear",
+      "rivulet",
+      "white"
+    ],
     "name": "Stormy Coast",
-    "specificNames": ["Stormy Coast", "Desolate Port", "Stormy Coast", "Stormy Coast", "Sunlit Port", "Stormy Coast", "Shrouded Coast", "Stormy Coast", "Stormy Coast"]
+    "specificNames": [
+      "Stormy Coast",
+      "Desolate Port",
+      "Stormy Coast",
+      "Stormy Coast",
+      "Sunlit Port",
+      "Stormy Coast",
+      "Shrouded Coast",
+      "Stormy Coast",
+      "Stormy Coast"
+    ]
   },
   "TM": {
-    "slugcats": ["red", "inv", "gourmand", "artificer", "yellow", "white", "rivulet", "spear"],
+    "slugcats": [
+      "red",
+      "inv",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "white",
+      "rivulet",
+      "spear"
+    ],
     "name": "The Mast",
-    "specificNames": ["The Mast", "The Mast", "The Mast", "The Mast", "The Mast", "The Mast", "The Mast", "The Mast"]
+    "specificNames": [
+      "The Mast",
+      "The Mast",
+      "The Mast",
+      "The Mast",
+      "The Mast",
+      "The Mast",
+      "The Mast",
+      "The Mast"
+    ]
   },
   "US": {
-    "slugcats": ["red", "inv", "gourmand", "artificer", "yellow", "white", "rivulet", "spear"],
+    "slugcats": [
+      "red",
+      "inv",
+      "gourmand",
+      "artificer",
+      "yellow",
+      "white",
+      "rivulet",
+      "spear"
+    ],
     "name": "Undersea",
-    "specificNames": ["Undersea", "Undersea", "Undersea", "Undersea", "Undersea", "Undersea", "Undersea", "Undersea"]
+    "specificNames": [
+      "Undersea",
+      "Undersea",
+      "Undersea",
+      "Undersea",
+      "Undersea",
+      "Undersea",
+      "Undersea",
+      "Undersea"
+    ]
   },
   "XD": {
-    "slugcats": ["yellow"],
+    "slugcats": [
+      "yellow"
+    ],
     "name": "Lost Cranny",
-    "specificNames": ["Lost Cranny"]
+    "specificNames": [
+      "Lost Cranny"
+    ]
   },
   "XM": {
-    "slugcats": ["saint"],
+    "slugcats": [
+      "saint"
+    ],
     "name": "Ashen Monolith",
-    "specificNames": ["Ashen Monolith"]
+    "specificNames": [
+      "Ashen Monolith"
+    ]
+  },
+  "BUS": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Desert Bus",
+    "specificNames": [
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus",
+      "Desert Bus"
+    ]
+  },
+  "MT": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "gourmand"
+    ],
+    "name": "The grinder",
+    "specificNames": [
+      "The grinder",
+      "The grinder",
+      "The grinder"
+    ]
+  },
+  "PA": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Pilgrims' Ascent",
+    "specificNames": [
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent",
+      "Pilgrims' Ascent"
+    ]
+  },
+  "SC": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Sacred Garden",
+    "specificNames": [
+      "Sacred Garden",
+      "Sacred Garden",
+      "Sacred Garden",
+      "Sacred Garden",
+      "Sacred Garden",
+      "Chilled Hydroponics",
+      "Sacred Garden",
+      "Sacred Garden",
+      "Winter Wonderland"
+    ]
   }
 }
