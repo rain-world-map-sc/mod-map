@@ -558,55 +558,5 @@
       "Sacred Garden",
       "Winter Wonderland"
     ]
-  },
-  "FO": {
-    "slugcats": [
-      "white",
-      "yellow",
-      "red",
-      "rivulet",
-      "artificer",
-      "saint",
-      "spear",
-      "gourmand",
-      "inv"
-    ],
-    "name": "Fog Gulch",
-    "specificNames": [
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch",
-      "Fog Gulch"
-    ]
-  },
-  "SE": {
-    "slugcats": [
-      "white",
-      "yellow",
-      "red",
-      "rivulet",
-      "artificer",
-      "saint",
-      "spear",
-      "gourmand",
-      "inv"
-    ],
-    "name": "Steaming Edifice",
-    "specificNames": [
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice",
-      "Steaming Edifice"
-    ]
   }
 }
