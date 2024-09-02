@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rain World Map</title>
+    <title>雨世界地图</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <meta property="og:image" content="https://alduris.github.io/mod-map/embed.jpg" />
+    <meta property="og:image" content="https://rain-world-map-sc.github.io/mod-map/embed.jpg" />
     <meta property="og:type" content="object" />
     <meta property="og:title" content="Rain World Mod Map" />
-    <meta property="og:url" content="https://alduris.github.io/mod-map/" />
-    <meta property="og:description" content="An online interactive map for modded regions in Rain World." />
+    <meta property="og:url" content="https://rain-world-map-sc.github.io/mod-map/" />
+    <meta property="og:description" content="一个包含雨世界中Mod区域的在线互动地图。" />
     <link rel="stylesheet" href="./rw.css" />
     <link rel="stylesheet" href="./leaflet/leaflet.css" />
 
@@ -289,9 +289,9 @@
 
     <div class="side-panel left-panel rw-text collapsible collapsed">
         <div style="padding-left: 8px; padding-bottom: 8px;">
-            <a href="./" class="rw-text">&lt; Back to Index</a>
+            <a href="./" class="rw-text">&lt; 返回索引</a>
             <hr />
-            <span>Regions</span>
+            <span>区域</span>
         </div>
 
         <form name="regionselect" id="region-select" class="scroll-ish"></form>
@@ -300,11 +300,11 @@
     </div>
 
     <div class="side-panel right-panel rw-text collapsible collapsed">
-        <div>Slugcat</div>
+        <div>蛞蝓猫</div>
         <form name="difficulty" class="difficulty-select" id="scug-selector">
         </form>
 
-        <div>Layers</div>
+        <div>图层</div>
         <div id="layer-content" class="scroll-ish"></div>
 
         <div class="collapse-tab"></div>
@@ -570,7 +570,7 @@
             crs: L.CRS.Simple,
             zoomControl: false,
         });
-        map.attributionControl.setPrefix('Powered by <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>, <a href="https://github.com/henpemaz" title="Gamedev &amp; associated arts enthusiast">Henpemaz</a>, &amp; <a href="https://github.com/alduris" title="Some kind of programmer I think">Alduris</a>')
+        map.attributionControl.setPrefix('基于<a href="https://leafletjs.com" title="一个用于交互式地图的JS库">Leaflet</a>, <a href="https://github.com/henpemaz" title="游戏开发及相关艺术爱好者">Henpemaz</a>, &amp; <a href="https://github.com/alduris" title="我想应该是某种程序员">Alduris</a>, <a href="https://github.com/xiowo" title="摸鱼ing">MortalCat</a>')
         map.setView([0, 0], -5);
 
         // Events
@@ -662,7 +662,7 @@
                 // Tileset layer
                 if (tileLayer != null) map.removeLayer(tileLayer);
                 tileLayer = L.tileLayer(`${roompath}/{z}/{x}_{y}.png`, {
-                    attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">Rain World</a> by <a href=\"https://twitter.com/VideocultMedia\">Videocult</a>",
+                    attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">雨世界</a> 由 <a href=\"https://twitter.com/VideocultMedia\">Videocult</a>制作",
                     minZoom: -7,
                     maxZoom: 3,
                     maxNativeZoom: 0, // important, stop requesting tiles at this point
@@ -705,9 +705,9 @@
                     }
                 });
                 if (hadRooms) roomsLayer.addTo(map);
-                overlays.addOverlay(roomsLayer, "Rooms");
+                overlays.addOverlay(roomsLayer, "房间聚焦");
                 if (hadNames) roomNames.addTo(map);
-                overlays.addOverlay(roomNames, "Room Names");
+                overlays.addOverlay(roomNames, "房间名称");
 
                 // Connections
                 let hadConnections = map.hasLayer(connectionsLayer) || loadedRegion == null;
@@ -723,7 +723,7 @@
                     interactive: false,
                 });
                 if (hadConnections) connectionsLayer.addTo(map);
-                overlays.addOverlay(connectionsLayer, "Connections");
+                overlays.addOverlay(connectionsLayer, "管道连接");
 
                 // Geometry
                 let hadGeometry = map.hasLayer(geometryLayer) || loadedRegion == null;
@@ -739,7 +739,7 @@
                     lineJoin: "miter",
                 });
                 if (hadGeometry) geometryLayer.addTo(map);
-                overlays.addOverlay(geometryLayer, "Geometry");
+                overlays.addOverlay(geometryLayer, "房间轮廓");
 
                 // Spawns
                 let hadSpawns = map.hasLayer(densLayer) || loadedRegion == null;
@@ -799,7 +799,7 @@
                     },
                 });
                 if (hadSpawns) densLayer.addTo(map);
-                overlays.addOverlay(densLayer, "Spawns");
+                overlays.addOverlay(densLayer, "生物生成");
 
                 // Placed Objects
                 // todo
