@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="./rw.css" />
 
     <script src="./global.js"></script>
+    <script src="./resources/js/console.js"></script>
+    <link rel="manifest" href="./manifest.json">
+    <script src="./resources/js/app.js"r></script>
 
     <style>
         :root {
@@ -157,5 +160,15 @@ Ideal number of columns: ${idealColumns}`);
 		<a href="https://store.steampowered.com/app/312520/Rain_World/" target="_blank">雨世界</a> 是 <a href="https://twitter.com/VideocultMedia" target="_blank">Videocult</a> 的财产
     </div>
 </body>
+
+<script>
+    // 检测浏览器是否支持SW
+    if (navigator.serviceWorker != null) {
+        navigator.serviceWorker.register('sw.js')
+            .then(function (registartion) {
+                console.log('支持sw:', registartion.scope)
+            })
+    }
+</script>
 
 </html>

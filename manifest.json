@@ -1,0 +1,35 @@
+{
+    "name": "雨世界模组地图",
+    "short_name": "雨世界模组地图",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/mod-map/",
+    "icons": [
+        {
+            "src": "resources/img/pwa/192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "resources/img/pwa/192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "resources/img/pwa/512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "resources/img/pwa/512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
