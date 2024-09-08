@@ -4,6 +4,11 @@
     src: url(resources/Rodondo.otf) format("OpenType");
 }
 
+@font-face {
+    font-family: "AlimamaFangYuanTiVF-Thin";
+    src: url(resources/AlimamaFangYuanTiVF-Thin.ttf) format("truetype");
+}
+
 :root {
     --font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     --font-title: "Rodondo", sans-serif;
@@ -18,7 +23,7 @@
 }
 
 .rw-bigtext {
-    font-family: var(--font-body);
+    font-family: 'AlimamaFangYuanTiVF-Thin';
     font-size: 1.3125rem;
     font-weight: 600;
 }
