@@ -8,7 +8,7 @@ queueMicrotask(async () => {
     // 定义一个函数来获取版本号
     async function getVersion() {
         try {
-            const response = await fetch('/version.json');
+            const response = await fetch('./version.json');
             const data = await response.json();
             return data.cacheVersion; // 假设 JSON 文件中的字段是 cacheVersion
         } catch (error) {
@@ -29,7 +29,7 @@ queueMicrotask(async () => {
     const days = (now1 - grt) / 1000 / 60 / 60 / 24;
     const dnum = Math.floor(days);
     const ascll = [
-        `欢迎访问雨世界地图!`,
+        `欢迎访问雨世界模组地图!`,
         `「众生不度，轮回不止」`,
         `
     
