@@ -16,6 +16,12 @@ const urlsToCache = [
 const VERSION_URL = '/mod-map/version.json';
 let cacheVersion = 'RWMM版本号-0.0.0'; // 初始版本号，使用独特前缀 RWMM
 
+// 定义需要过滤的域名，资源文件不会被缓存或拦截
+const blockedDomains = [
+    'alduris.github.io',
+    'rwmm.xiowo.us.kg',
+];
+
 // 从 caches 中读取 cacheVersion
 async function getCacheVersion() {
     const cache = await caches.open('version-cache-RWMM'); // 使用特定的版本缓存名称
@@ -111,6 +117,15 @@ self.addEventListener('fetch', (event) => {
 
     // 仅处理 HTTP 和 HTTPS 请求
     if (requestURL.protocol !== 'http:' && requestURL.protocol !== 'https:') {
+        return;
+    }
+
+    // 检查请求的域名是否在过滤名单中
+    const matchedDomain = blockedDomains.find(domain => requestURL.hostname.includes(domain));
+    if (matchedDomain) {
+        // 打印过滤的域名
+        console.log(`Skipping cache for domain: ${matchedDomain}`);
+        event.respondWith(fetch(event.request));
         return;
     }
 
