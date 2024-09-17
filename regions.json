@@ -12,6 +12,7 @@
       "inv"
     ],
     "name": "Curious Ascent",
+    "cname": "好奇攀升",
     "specificNames": [
       "Curious Ascent",
       "Curious Ascent",
@@ -37,6 +38,7 @@
       "inv"
     ],
     "name": "Arid Barrens",
+    "cname": "干旱荒地",
     "specificNames": [
       "Arid Barrens",
       "Windswept Barrens",
@@ -62,6 +64,7 @@
       "inv"
     ],
     "name": "Badlands",
+    "cname": "荒原",
     "specificNames": [
       "Badlands",
       "Badlands",
@@ -87,6 +90,7 @@
       "spear"
     ],
     "name": "Purification Conduits",
+    "cname": "净化通道",
     "specificNames": [
       "Purification Conduits",
       "Sterile Waterworks",
@@ -111,6 +115,7 @@
       "inv"
     ],
     "name": "Chasing Wind",
+    "cname": "追逐清风",
     "specificNames": [
       "Chasing Wind",
       "Chasing Wind",
@@ -135,6 +140,7 @@
       "inv"
     ],
     "name": "Far Shore",
+    "cname": "远岸",
     "specificNames": [
       "Far Shore",
       "Far Shore",
@@ -154,6 +160,7 @@
       "red"
     ],
     "name": "Deserted Wastelands",
+    "cname": "荒废荒地",
     "specificNames": [
       "Deserted Wastelands",
       "Deserted Wastelands",
@@ -172,6 +179,7 @@
       "inv"
     ],
     "name": "Forsaken Station",
+    "cname": "被遗弃的车站",
     "specificNames": [
       "Forsaken Station",
       "Forsaken Station",
@@ -196,6 +204,7 @@
       "white"
     ],
     "name": "Hanging Gardens",
+    "cname": "空中花园",
     "specificNames": [
       "Hanging Gardens",
       "Enduring Sanctuary",
@@ -221,6 +230,7 @@
       "saint"
     ],
     "name": "Gilded Sanctuary",
+    "cname": "镀金圣地",
     "specificNames": [
       "Gilded Sanctuary",
       "Gilded Sanctuary",
@@ -245,6 +255,7 @@
       "red"
     ],
     "name": "Howling Rift",
+    "cname": "嚎叫裂谷",
     "specificNames": [
       "Howling Rift",
       "Howling Rift",
@@ -268,6 +279,7 @@
       "inv"
     ],
     "name": "Lush Mire",
+    "cname": "葱郁沼泽",
     "specificNames": [
       "Lush Mire",
       "Lush Mire",
@@ -291,6 +303,7 @@
       "inv"
     ],
     "name": "Moss Fields",
+    "cname": "苔藓之地",
     "specificNames": [
       "Moss Fields",
       "Moss Fields",
@@ -307,6 +320,7 @@
       "saint"
     ],
     "name": "Neuron Forest",
+    "cname": "神经森林",
     "specificNames": [
       "Neuron Forest"
     ]
@@ -324,6 +338,7 @@
       "inv"
     ],
     "name": "The radiosphere",
+    "cname": "无线电球体",
     "specificNames": [
       "The radiosphere",
       "The radiosphere",
@@ -349,6 +364,7 @@
       "inv"
     ],
     "name": "Coral Caves",
+    "cname": "珊瑚洞穴",
     "specificNames": [
       "Coral Caves",
       "Coral Caves",
@@ -373,6 +389,7 @@
       "inv"
     ],
     "name": "Scorched District",
+    "cname": "灼烧区",
     "specificNames": [
       "Scorched District",
       "Scorched District",
@@ -397,6 +414,7 @@
       "white"
     ],
     "name": "Stormy Coast",
+    "cname": "暴风海岸",
     "specificNames": [
       "Stormy Coast",
       "Desolate Port",
@@ -421,6 +439,7 @@
       "spear"
     ],
     "name": "The Mast",
+    "cname": "桅杆",
     "specificNames": [
       "The Mast",
       "The Mast",
@@ -444,6 +463,7 @@
       "spear"
     ],
     "name": "Undersea",
+    "cname": "海底",
     "specificNames": [
       "Undersea",
       "Undersea",
@@ -460,6 +480,7 @@
       "yellow"
     ],
     "name": "Lost Cranny",
+    "cname": "失落角落",
     "specificNames": [
       "Lost Cranny"
     ]
@@ -469,6 +490,7 @@
       "saint"
     ],
     "name": "Ashen Monolith",
+    "cname": "灰烬巨石",
     "specificNames": [
       "Ashen Monolith"
     ]
@@ -486,6 +508,7 @@
       "inv"
     ],
     "name": "Desert Bus",
+    "cname": "沙漠巴士",
     "specificNames": [
       "Desert Bus",
       "Desert Bus",
@@ -505,6 +528,7 @@
       "gourmand"
     ],
     "name": "The grinder",
+    "cname": "磨坊",
     "specificNames": [
       "The grinder",
       "The grinder",
@@ -523,6 +547,7 @@
       "inv"
     ],
     "name": "Pilgrims' Ascent",
+    "cname": "朝圣者的攀升",
     "specificNames": [
       "Pilgrims' Ascent",
       "Pilgrims' Ascent",
@@ -547,6 +572,7 @@
       "inv"
     ],
     "name": "Sacred Garden",
+    "cname": "圣洁花园",
     "specificNames": [
       "Sacred Garden",
       "Sacred Garden",
@@ -572,6 +598,7 @@
       "inv"
     ],
     "name": "Fog Gulch",
+    "cname": "迷雾峡谷",
     "specificNames": [
       "Fog Gulch",
       "Fog Gulch",
@@ -597,6 +624,7 @@
       "inv"
     ],
     "name": "Steaming Edifice",
+    "cname": "蒸汽大厦",
     "specificNames": [
       "Steaming Edifice",
       "Steaming Edifice",
