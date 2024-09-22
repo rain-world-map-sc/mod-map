@@ -191,6 +191,28 @@
             left: 24px;
         }
 
+        .toggleLanguage-ckb {
+            position: relative;
+            top: 3px;
+            padding-left: 6px;
+            margin-left: auto;
+        }
+
+        #toggleLanguage {
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+
+        #toggleLanguage~label {
+            left: 4px;
+            top: -3px;
+        }
+
+        #toggleLanguage::before {
+            font-size: 1rem;
+        }
+
         .region-btn {
             font-size: 0.8rem;
             width: 230px;
@@ -309,9 +331,11 @@
             <a href="../rw-map.html#ModMap" class="rw-text">&lt; 返回索引</a>
             <hr />
             <span>区域</span>
-            <label>
-                <input type="checkbox" id="toggleLanguage" onclick="toggleLanguage()"> 显示中文
-            </label>
+            <span class="toggleLanguage-ckb">
+                <input type="checkbox" class="rw-ui rw-ui-ckb toggleLanguage-ckb" id="toggleLanguage"
+                    onclick="toggleLanguage()">
+                <label class="rw-text">显示中文</label>
+            </span>
         </div>
 
         <form name="regionselect" id="region-select" class="scroll-ish"></form>

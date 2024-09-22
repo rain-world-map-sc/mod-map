@@ -179,7 +179,7 @@
       "inv"
     ],
     "name": "Forsaken Station",
-    "cname": "被遗弃的车站",
+    "cname": "遗弃站点",
     "specificNames": [
       "Forsaken Station",
       "Forsaken Station",
@@ -230,7 +230,7 @@
       "saint"
     ],
     "name": "Gilded Sanctuary",
-    "cname": "镀金圣地",
+    "cname": "镀金圣殿",
     "specificNames": [
       "Gilded Sanctuary",
       "Gilded Sanctuary",
@@ -255,7 +255,7 @@
       "red"
     ],
     "name": "Howling Rift",
-    "cname": "嚎叫裂谷",
+    "cname": "呼啸裂谷",
     "specificNames": [
       "Howling Rift",
       "Howling Rift",
@@ -303,7 +303,7 @@
       "inv"
     ],
     "name": "Moss Fields",
-    "cname": "苔藓之地",
+    "cname": "苔藓原野",
     "specificNames": [
       "Moss Fields",
       "Moss Fields",
@@ -338,7 +338,7 @@
       "inv"
     ],
     "name": "The radiosphere",
-    "cname": "无线电球体",
+    "cname": "无线电领域",
     "specificNames": [
       "The radiosphere",
       "The radiosphere",
@@ -389,7 +389,7 @@
       "inv"
     ],
     "name": "Scorched District",
-    "cname": "灼烧区",
+    "cname": "焦土区",
     "specificNames": [
       "Scorched District",
       "Scorched District",
@@ -414,7 +414,7 @@
       "white"
     ],
     "name": "Stormy Coast",
-    "cname": "暴风海岸",
+    "cname": "风暴海滨",
     "specificNames": [
       "Stormy Coast",
       "Desolate Port",
@@ -547,7 +547,7 @@
       "inv"
     ],
     "name": "Pilgrims' Ascent",
-    "cname": "朝圣者的攀升",
+    "cname": "朝圣者的飞升",
     "specificNames": [
       "Pilgrims' Ascent",
       "Pilgrims' Ascent",
