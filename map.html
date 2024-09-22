@@ -1043,8 +1043,15 @@
         // Collapsible things
         var uncollapsed = null;
         var collapsible = document.querySelectorAll(".collapsible");
+
         for (const el of collapsible) {
-            el.style.setProperty("--hide-pos", "-" + (el.getBoundingClientRect().width) + "px");
+            // 针对不同的 panel 设置固定的 --hide-pos 值
+            if (el.classList.contains("left-panel")) {
+                el.style.setProperty("--hide-pos", "-261.9959716796875px"); // 固定宽度的值
+            } else if (el.classList.contains("right-panel")) {
+                el.style.setProperty("--hide-pos", "-181.9932861328125px"); // 固定宽度的值
+            }
+
             var button = el.querySelector(".collapse-tab");
             button.addEventListener("click", (e) => {
                 if (uncollapsed != null) {
