@@ -10,6 +10,7 @@ const urlsToCache = [
     '/mod-map/slugcats.json',
     '/mod-map/global.js',
     '/mod-map/beziero.js',
+    '/mod-map/leaflet/leaflet.js',
     '/mod-map/embed.jpg',
 ];
 

@@ -467,9 +467,11 @@
 
         // 页面加载时，从localStorage读取之前保存的语言选择状态
         window.addEventListener("load", () => {
+            // 检查 localStorage 中的 displayChinese 是否为 'true'
             displayChinese = localStorage.getItem('displayChinese') === 'true';
-            document.getElementById("toggleLanguage").checked = displayChinese;
-            renderRegionOptions();
+            document.getElementById("toggleLanguage").checked = displayChinese;  // 更新复选框状态
+            renderRegionOptions();  // 渲染区域选项
+            renderSlugcatOptions();  // 渲染难度选项
         });
 
         getJsonObject("regions.json", function (json) {
@@ -491,7 +493,7 @@
                 html += `
 <label>
     <div class="region-btn">
-        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == region ? ' checked' : ''} autocomplete = "off">
+        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == region ? ' checked' : ''} autocomplete="off">
         <span>${regionName.toUpperCase()} (${r})</span>
     </div>
 </label>`;
@@ -511,11 +513,13 @@
             document.getElementById('scug-selector').innerHTML = html;
         }
 
+        // 切换语言的函数，更新 localStorage 并重新渲染区域选项
         function toggleLanguage() {
             displayChinese = document.getElementById("toggleLanguage").checked;
-            localStorage.setItem('displayChinese', displayChinese);
-            renderRegionOptions();
+            localStorage.setItem('displayChinese', displayChinese);  // 保存语言选择状态
+            renderRegionOptions();  // 根据新的语言状态重新渲染区域选项
         }
+
         function selectRegion(value) {
             if (region != value) {
                 room = null;
@@ -523,7 +527,7 @@
                 if (regions[region]["slugcats"].indexOf(difficulty) == -1) {
                     difficulty = regions[region]["slugcats"][0];
                 }
-                pushState();
+                pushState();  // 更新页面状态
             }
         }
 
@@ -535,7 +539,7 @@
             }
             if (difficulty != n) {
                 difficulty = n;
-                pushState();
+                pushState();  // 更新页面状态
             }
         }
 
