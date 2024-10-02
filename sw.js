@@ -15,7 +15,7 @@ const urlsToCache = [
 ];
 
 const VERSION_URL = '/mod-map/version.json';
-let cacheVersion = 'RWMM版本号-0.0.0'; // 初始版本号，使用独特前缀 RWMM
+let cacheVersion = ''; // 不再定义默认版本号
 
 // 定义需要过滤的域名，资源文件不会被缓存或拦截
 const blockedDomains = [
@@ -30,7 +30,7 @@ async function getCacheVersion() {
     if (response) {
         return response.text();
     }
-    return '0.0.0';
+    return ''; // 如果没有缓存版本，则返回空字符串
 }
 
 // 将 cacheVersion 保存到 caches
@@ -48,7 +48,16 @@ async function fetchCacheVersion() {
         return data.cacheVersion;
     } catch (error) {
         console.error('无法获取缓存版本:', error);
-        return cacheVersion.split('-')[1]; // 如果获取版本号失败，返回当前缓存中的版本号
+
+        // 如果无法获取版本号，则尝试使用现有缓存中的版本
+        const currentVersion = await getCacheVersion();
+        if (currentVersion) {
+            cacheVersion = `RWMSC版本号-${currentVersion}`;
+            return currentVersion;
+        }
+
+        // 如果没有现有缓存版本，则返回空字符串，稍后会处理为空的情况
+        return '';
     }
 }
 
@@ -58,7 +67,7 @@ async function updateCache() {
     const currentCacheVersion = await getCacheVersion();
 
     if (newCacheVersion !== currentCacheVersion) {
-        console.log(`缓存更新: 本地 ${currentCacheVersion} --> 最新 ${newCacheVersion}`);
+        console.log(`缓存更新: 本地 ${currentCacheVersion || '无'} --> 最新 ${newCacheVersion || '无'}`);
 
         const cacheNames = await caches.keys();
         await Promise.all(
@@ -78,6 +87,8 @@ async function updateCache() {
 
         // 保存新的缓存版本号到 caches
         await setCacheVersion(newCacheVersion);
+    } else {
+        console.warn('未获取到新版本，跳过缓存更新。');
     }
 }
 
@@ -104,7 +115,7 @@ async function cacheResources(cache, urls) {
 // 安装阶段：缓存初始资源
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(cacheVersion)
+        caches.open(cacheVersion || 'RWMSC临时缓存') // 如果没有版本号，使用临时缓存
             .then((cache) => {
                 console.log('已启用缓存');
                 return cacheResources(cache, urlsToCache);
