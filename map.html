@@ -300,7 +300,7 @@
             background-position: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 899px) {
             .side-panel {
                 transition: left ease 0.3s, right ease 0.3s;
             }
@@ -506,17 +506,42 @@
         // Setup or something like that
         var regions = {};
         var slugcats = [];
+        var poRules = {};
+        var displayChinese = false;  // 标志是否显示中文
 
-        getJsonObject("regions.json", function (json) { regions = json; }, false);
-        getJsonObject("slugcats.json", function (json) { slugcats = json; }, false);
+        // 页面加载时，从localStorage读取之前保存的语言选择状态
+        window.addEventListener("load", () => {
+            displayChinese = localStorage.getItem('displayChinese') === 'true';
+            document.getElementById("toggleLanguage").checked = displayChinese;
 
-        var html = "";
-        var regionListSorted = Object.keys(regions).sort((a, b) => regions[a]["name"].toUpperCase().localeCompare(regions[b]["name"].toUpperCase()));
-        for (const r of regionListSorted) {
-            html += `
+            // 异步加载数据后调用渲染函数
+            getJsonObject("regions.json", function (json) {
+                regions = json;
+                renderRegionOptions();
+            }, false);
+
+            getJsonObject("slugcats.json", function (json) {
+                slugcats = json;
+                renderSlugcatOptions();
+            }, false);
+
+            getJsonObject("placedobjectsdata.json", function (json) {
+                poRules = json;
+                // 备用
+            }, false);
+        });
+
+        // 渲染区域选项
+        function renderRegionOptions() {
+            var html = "";
+            var regionListSorted = Object.keys(regions).sort((a, b) => regions[a]["name"].toUpperCase().localeCompare(regions[b]["name"].toUpperCase()));
+            for (const r of regionListSorted) {
+                // 根据用户的语言选择显示中文cname或英文name
+                const regionName = displayChinese ? regions[r]["cname"] : regions[r]["name"];
+                html += `
 <label>
     <div class="region-btn">
-        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == region ? ' checked' : ''} autocomplete="off">
+        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == region ? ' checked' : ''} autocomplete = "off">
         <span>${regionName.toUpperCase()} (${r})</span>
     </div>
 </label>`;
@@ -524,6 +549,7 @@
             document.getElementById('region-select').innerHTML = html;
         }
 
+        // 渲染slugcat选项
         function renderSlugcatOptions() {
             var html = "";
             for (const slugcatName of slugcats) {
@@ -536,13 +562,14 @@
             document.getElementById('scug-selector').innerHTML = html;
         }
 
-        // 切换语言的函数，更新 localStorage 并重新渲染区域选项
+        // 语言切换
         function toggleLanguage() {
             displayChinese = document.getElementById("toggleLanguage").checked;
-            localStorage.setItem('displayChinese', displayChinese);  // 保存语言选择状态
-            renderRegionOptions();  // 根据新的语言状态重新渲染区域选项
+            localStorage.setItem('displayChinese', displayChinese);
+            renderRegionOptions();
         }
 
+        // 选择区域
         function selectRegion(value) {
             if (region != value) {
                 room = null;
@@ -550,10 +577,11 @@
                 if (regions[region]["slugcats"].indexOf(difficulty) == -1) {
                     difficulty = regions[region]["slugcats"][0];
                 }
-                pushState();  // 更新页面状态
+                pushState();
             }
         }
 
+        // 选择难度
         function selectDifficulty(n) {
             for (var i = 0; i < document.difficulty.difficulties.length; i++) {
                 if (document.difficulty.difficulties[i].value == n) {
@@ -562,7 +590,7 @@
             }
             if (difficulty != n) {
                 difficulty = n;
-                pushState();  // 更新页面状态
+                pushState();
             }
         }
 
@@ -682,7 +710,7 @@
             crs: L.CRS.Simple,
             zoomControl: false,
         });
-        map.attributionControl.setPrefix('Powered by <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>, <a href="https://github.com/henpemaz" title="Gamedev &amp; associated arts enthusiast">Henpemaz</a>, &amp; <a href="https://github.com/alduris" title="Some kind of programmer I think">Alduris</a>')
+        map.attributionControl.setPrefix('基于<a href="https://leafletjs.com" title="一个用于交互式地图的JS库">Leaflet</a>, <a href="https://github.com/henpemaz" title="游戏开发及相关艺术爱好者">Henpemaz</a>, &amp; <a href="https://github.com/alduris" title="我想应该是某种程序员">Alduris</a>, <a href="https://github.com/xiowo" title="摸鱼ing">MortalCat</a>')
         map.setView([0, 0], -5);
 
         // Events
@@ -758,7 +786,9 @@
             } catch (e) {
                 console.error(e);
             }
-            var roompath = `https://alduris.github.io/modmap-data-${pdifficulty}/${region}`;
+            let rdifficulty = pdifficulty;
+            if (["white", "yellow", "red", "night", "artificer", "rivulet", "spear", "gourmand", "saint", "inv"].indexOf(rdifficulty.toLowerCase()) == -1) rdifficulty = "modcats/" + rdifficulty;
+            let roompath = `https://alduris.github.io/modmap-data-${rdifficulty}/${region}`;
             getJsonObject(`${roompath}/region.json`, function (json) {
                 var roomjson = json;
                 if ('copyingrooms' in json) {
@@ -768,327 +798,327 @@
                     }, false);
                 }
 
-                // Background color
-                map.getContainer().style.backgroundColor = 'rgb(' + json["bgcolor"].join(',') + ')'; // I hate this with passion, but such is the way of the CSS
+        // Background color
+        map.getContainer().style.backgroundColor = 'rgb(' + json["bgcolor"].join(',') + ')'; // I hate this with passion, but such is the way of the CSS
 
-                // Tileset layer
-                if (tileLayer != null) map.removeLayer(tileLayer);
-                tileLayer = L.tileLayer(`${roompath}/{z}/{x}_{y}.png`, {
-                    attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">雨世界</a> 由 <a href=\"https://twitter.com/VideocultMedia\">Videocult</a>制作",
-                    minZoom: -7,
-                    maxZoom: 3,
-                    maxNativeZoom: 0, // important, stop requesting tiles at this point
-                });
-                tileLayer.addTo(map);
+        // Tileset layer
+        if (tileLayer != null) map.removeLayer(tileLayer);
+        tileLayer = L.tileLayer(`${roompath}/{z}/{x}_{y}.png`, {
+            attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">雨世界</a> 由 <a href=\"https://twitter.com/VideocultMedia\">Videocult</a>制作",
+            minZoom: -7,
+            maxZoom: 3,
+            maxNativeZoom: 0, // important, stop requesting tiles at this point
+        });
+        tileLayer.addTo(map);
 
-                // Room features and name popups
-                let hadNames = map.hasLayer(roomNames) || loadedRegion == null;
-                if (roomNames != null) {
-                    overlays.removeLayer(roomNames);
-                    map.removeLayer(roomNames);
-                }
-                let hadRooms = map.hasLayer(roomsLayer) || loadedRegion == null;
-                if (roomsLayer != null) {
-                    overlays.removeLayer(roomsLayer);
-                    map.removeLayer(roomsLayer);
-                }
-                roomNames = L.layerGroup();
-                roomsLayer = L.geoJSON(roomjson["room_features"], {
-                    style: {
-                        weight: 0,
-                        color: 'rgb(' + json["highlightcolor"].join(',') + ')',
-                        fillOpacity: 0
+        // Room features and name popups
+        let hadNames = map.hasLayer(roomNames) || loadedRegion == null;
+        if (roomNames != null) {
+            overlays.removeLayer(roomNames);
+            map.removeLayer(roomNames);
+        }
+        let hadRooms = map.hasLayer(roomsLayer) || loadedRegion == null;
+        if (roomsLayer != null) {
+            overlays.removeLayer(roomsLayer);
+            map.removeLayer(roomsLayer);
+        }
+        roomNames = L.layerGroup();
+        roomsLayer = L.geoJSON(roomjson["room_features"], {
+            style: {
+                weight: 0,
+                color: 'rgb(' + json["highlightcolor"].join(',') + ')',
+                fillOpacity: 0
+            },
+            onEachFeature: function (feature, layer) {
+                // Room focus stuff
+                layer.on({
+                    mouseover: hilightRoom,
+                    mouseout: resetHilight,
+                    click: focusRoom,
+                    tooltipopen: function (e) {
+                        e.tooltip.setLatLng(L.latLng([].concat(e.target.feature.properties.popupcoords).reverse()));
+                        e.tooltip.getElement().style.removeProperty('opacity'); // 'defaults' amirite
                     },
-                    onEachFeature: function (feature, layer) {
-                        // Room focus stuff
-                        layer.on({
-                            mouseover: hilightRoom,
-                            mouseout: resetHilight,
-                            click: focusRoom,
-                            tooltipopen: function (e) {
-                                e.tooltip.setLatLng(L.latLng([].concat(e.target.feature.properties.popupcoords).reverse()));
-                                e.tooltip.getElement().style.removeProperty('opacity'); // 'defaults' amirite
-                            },
-                        });
-
-                        L.tooltip({ direction: "center", offset: [0, -14], permanent: true, className: "rw-text room-labels" }, layer).setContent(feature.properties.name).setLatLng(L.latLng([].concat(feature.properties.popupcoords).reverse())).addTo(roomNames);
-
-                        layer.bindTooltip(feature.properties.name, { direction: "center", offset: [0, -14], interactive: true, className: "rw-text room-labels hover-label" });
-                    }
                 });
-                if (hadRooms) roomsLayer.addTo(map);
-                overlays.addOverlay(roomsLayer, "房间聚焦");
-                if (hadNames) roomNames.addTo(map);
-                overlays.addOverlay(roomNames, "房间名称");
 
-                // Connections
-                let hadConnections = map.hasLayer(connectionsLayer) || loadedRegion == null;
-                if (connectionsLayer != null) {
-                    overlays.removeLayer(connectionsLayer);
-                    map.removeLayer(connectionsLayer);
-                }
-                connectionsLayer = new L.BezierGeoJSON(roomjson["connection_features"], {
-                    color: 'rgba(' + json["shortcutcolor"].join(',') + ',0.72)', // so the white looks better
-                    weight: 2,
-                    lineCap: "butt", // hehe
-                    dashArray: "5 8",
-                    interactive: false,
-                });
-                if (hadConnections) connectionsLayer.addTo(map);
-                overlays.addOverlay(connectionsLayer, "管道连接");
+                L.tooltip({ direction: "center", offset: [0, -14], permanent: true, className: "rw-text room-labels" }, layer).setContent(feature.properties.name).setLatLng(L.latLng([].concat(feature.properties.popupcoords).reverse())).addTo(roomNames);
 
-                // Geometry
-                let hadGeometry = map.hasLayer(geometryLayer) || loadedRegion == null;
-                if (geometryLayer != null) {
-                    overlays.removeLayer(geometryLayer);
-                    map.removeLayer(geometryLayer);
-                }
-                geometryLayer = L.geoJSON(roomjson["geo_features"], {
-                    interactive: false,
-                    color: 'rgb(' + json["geocolor"].join(',') + ')',
-                    weight: 2,
-                    lineCap: "butt", // im easily entertained
-                    lineJoin: "miter",
-                });
-                if (hadGeometry) geometryLayer.addTo(map);
-                overlays.addOverlay(geometryLayer, "房间轮廓");
+                layer.bindTooltip(feature.properties.name, { direction: "center", offset: [0, -14], interactive: true, className: "rw-text room-labels hover-label" });
+            }
+        });
+        if (hadRooms) roomsLayer.addTo(map);
+        overlays.addOverlay(roomsLayer, "房间聚焦");
+        if (hadNames) roomNames.addTo(map);
+        overlays.addOverlay(roomNames, "房间名称");
 
-                // Spawns
-                let hadSpawns = map.hasLayer(densLayer) || loadedRegion == null;
-                if (densLayer != null) {
-                    overlays.removeLayer(densLayer);
-                    map.removeLayer(densLayer);
-                }
-                densLayer = L.geoJSON(json["spawn_features"], {
-                    pointToLayer: function (feature, latlng) {
-                        // Spawns are organized by dens, dens list spawns in it, flexbox stacks them visually on the den location, filter classes control visib
-                        let divhtml = "";
-                        for (let spawn of feature.properties.spawns) {
-                            let spawn_filter = " spawn-filter";
-                            if (spawn.is_lineage) {
-                                // lineages are vertical stacks
-                                divhtml += '<div class="spawn-entry ' + spawn_filter + '">';
-                                for (let i = 0; i < spawn.lineage.length; i++) {
-                                    var tooltip = "";
-                                    if ((spawn.spawnData?.indexOf("Night") ?? -1) > -1) {
-                                        tooltip += "🌙";
-                                    }
-                                    if ((spawn.spawnData?.indexOf("PreCycle") ?? -1) > -1) {
-                                        tooltip += "🚿";
-                                    }
+        // Connections
+        let hadConnections = map.hasLayer(connectionsLayer) || loadedRegion == null;
+        if (connectionsLayer != null) {
+            overlays.removeLayer(connectionsLayer);
+            map.removeLayer(connectionsLayer);
+        }
+        connectionsLayer = new L.BezierGeoJSON(roomjson["connection_features"], {
+            color: 'rgba(' + json["shortcutcolor"].join(',') + ',0.72)', // so the white looks better
+            weight: 2,
+            lineCap: "butt", // hehe
+            dashArray: "5 8",
+            interactive: false,
+        });
+        if (hadConnections) connectionsLayer.addTo(map);
+        overlays.addOverlay(connectionsLayer, "管道连接");
 
-                                    var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
-                                    if (spawn.lineage[i] == "") path = "./resources/none.png";
-                                    divhtml += `<div class="lineage-entry">
+        // Geometry
+        let hadGeometry = map.hasLayer(geometryLayer) || loadedRegion == null;
+        if (geometryLayer != null) {
+            overlays.removeLayer(geometryLayer);
+            map.removeLayer(geometryLayer);
+        }
+        geometryLayer = L.geoJSON(roomjson["geo_features"], {
+            interactive: false,
+            color: 'rgb(' + json["geocolor"].join(',') + ')',
+            weight: 2,
+            lineCap: "butt", // im easily entertained
+            lineJoin: "miter",
+        });
+        if (hadGeometry) geometryLayer.addTo(map);
+        overlays.addOverlay(geometryLayer, "房间轮廓");
+
+        // Spawns
+        let hadSpawns = map.hasLayer(densLayer) || loadedRegion == null;
+        if (densLayer != null) {
+            overlays.removeLayer(densLayer);
+            map.removeLayer(densLayer);
+        }
+        densLayer = L.geoJSON(json["spawn_features"], {
+            pointToLayer: function (feature, latlng) {
+                // Spawns are organized by dens, dens list spawns in it, flexbox stacks them visually on the den location, filter classes control visib
+                let divhtml = "";
+                for (let spawn of feature.properties.spawns) {
+                    let spawn_filter = " spawn-filter";
+                    if (spawn.is_lineage) {
+                        // lineages are vertical stacks
+                        divhtml += '<div class="spawn-entry ' + spawn_filter + '">';
+                        for (let i = 0; i < spawn.lineage.length; i++) {
+                            var tooltip = "";
+                            if ((spawn.spawnData?.indexOf("Night") ?? -1) > -1) {
+                                tooltip += "🌙";
+                            }
+                            if ((spawn.spawnData?.indexOf("PreCycle") ?? -1) > -1) {
+                                tooltip += "🚿";
+                            }
+
+                            var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
+                            if (spawn.lineage[i] == "") path = "./resources/none.png";
+                            divhtml += `<div class="lineage-entry">
                                         <img class="icon-image" src="${path}"/>
                                         <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 100)}</div>
                                         <div class="icon-tooltip">${tooltip}</div>
                                         </div>`;
-                                }
-                                divhtml += '</div>';
-                            } else {
-                                var tooltip = "";
-                                if (spawn.night) {
-                                    tooltip += "🌙";
-                                }
-                                if (spawn.pre_cycle) {
-                                    tooltip += "🚿";
-                                }
-                                divhtml += `<div class="spawn-entry${spawn_filter}">
+                        }
+                        divhtml += '</div>';
+                    } else {
+                        var tooltip = "";
+                        if (spawn.night) {
+                            tooltip += "🌙";
+                        }
+                        if (spawn.pre_cycle) {
+                            tooltip += "🚿";
+                        }
+                        divhtml += `<div class="spawn-entry${spawn_filter}">
                                     <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
                                     <div class="icon-tooltip">${tooltip}</div>
                                     </div>`;
-                            }
-                        }
-                        return L.marker(latlng, {
-                            icon: L.divIcon({
-                                className: 'spawn-divs',
-                                html: divhtml,
-                            }),
-                            interactive: false,
-                        });
-                    },
-                });
-                if (hadSpawns) densLayer.addTo(map);
-                overlays.addOverlay(densLayer, "生物生成");
-
-                // Placed Objects
-                let hadPlacedObjects = map.hasLayer(placedObjectsLayer) || loadedRegion == null;
-                if (placedObjectsLayer != null) {
-                    overlays.removeLayer(placedObjectsLayer);
-                    map.removeLayer(placedObjectsLayer);
+                    }
                 }
-                placedObjectsLayer = L.geoJSON(json["placedobject_features"], {
-                    pointToLayer: function (feature, latlng) {
-                        let objecthtml = "";
-                        let object = feature.properties.object;
-                        let data = feature.properties.settings;
+                return L.marker(latlng, {
+                    icon: L.divIcon({
+                        className: 'spawn-divs',
+                        html: divhtml,
+                    }),
+                    interactive: false,
+                });
+            },
+        });
+        if (hadSpawns) densLayer.addTo(map);
+        overlays.addOverlay(densLayer, "生物生成");
 
-                        // Parse thingy
-                        let rules = poRules[object];
-                        rules ??= poRules[object.toLowerCase()];
-                        if (rules != undefined && "use" in rules) {
-                            console.log("Using " + rules["use"] + " for object " + object);
-                            object = rules[use];
+        // Placed Objects
+        let hadPlacedObjects = map.hasLayer(placedObjectsLayer) || loadedRegion == null;
+        if (placedObjectsLayer != null) {
+            overlays.removeLayer(placedObjectsLayer);
+            map.removeLayer(placedObjectsLayer);
+        }
+        placedObjectsLayer = L.geoJSON(json["placedobject_features"], {
+            pointToLayer: function (feature, latlng) {
+                let objecthtml = "";
+                let object = feature.properties.object;
+                let data = feature.properties.settings;
+
+                // Parse thingy
+                let rules = poRules[object];
+                rules ??= poRules[object.toLowerCase()];
+                if (rules != undefined && "use" in rules) {
+                    console.log("Using " + rules["use"] + " for object " + object);
+                    object = rules[use];
+                }
+
+                // Data!
+                let icon = "./resources/objects/" + object.toLowerCase() + ".png";
+                let tooltip = "";
+                let display = true;
+
+                if (rules != undefined) {
+                    if ("icon" in rules) {
+                        let val = parseRule(rules["icon"], new Map([["default", icon], ["slugcat", pdifficulty], ["settings", data]]));
+                        if (typeof val != "string") {
+                            throw new SyntaxError("Expected string for icon!");
                         }
-
-                        // Data!
-                        let icon = "./resources/objects/" + object.toLowerCase() + ".png";
-                        let tooltip = "";
-                        let display = true;
-
-                        if (rules != undefined) {
-                            if ("icon" in rules) {
-                                let val = parseRule(rules["icon"], new Map([["default", icon], ["slugcat", pdifficulty], ["settings", data]]));
-                                if (typeof val != "string") {
-                                    throw new SyntaxError("Expected string for icon!");
-                                }
-                                icon = val;
-                            }
-                            if ("displayif" in rules) {
-                                let val = parseRule(rules["displayif"], new Map([["default", display], ["slugcat", pdifficulty], ["settings", data]]));
-                                if (typeof val != "boolean") {
-                                    throw new SyntaxError("Expected boolean for display!");
-                                }
-                                display = val;
-                            }
-                            if ("text" in rules) {
-                                let strs = [];
-                                for (const rule of rules["text"]) {
-                                    strs.push(parseRule(rule, new Map([["slugcat", pdifficulty], ["settings", data]])));
-                                }
-                                for (let i = 0; i < strs.length; i++) {
-                                    strs[i] = strs[i].replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;').replaceAll("\n", "<br/>");
-                                }
-                                tooltip = strs.join("<br/>");
-                            }
+                        icon = val;
+                    }
+                    if ("displayif" in rules) {
+                        let val = parseRule(rules["displayif"], new Map([["default", display], ["slugcat", pdifficulty], ["settings", data]]));
+                        if (typeof val != "boolean") {
+                            throw new SyntaxError("Expected boolean for display!");
                         }
+                        display = val;
+                    }
+                    if ("text" in rules) {
+                        let strs = [];
+                        for (const rule of rules["text"]) {
+                            strs.push(parseRule(rule, new Map([["slugcat", pdifficulty], ["settings", data]])));
+                        }
+                        for (let i = 0; i < strs.length; i++) {
+                            strs[i] = strs[i].replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;').replaceAll("\n", "<br/>");
+                        }
+                        tooltip = strs.join("<br/>");
+                    }
+                }
 
-                        // The resulting HTML
-                        if (display) {
-                            objecthtml += `<div class="object-entry">
+                // The resulting HTML
+                if (display) {
+                    objecthtml += `<div class="object-entry">
                                         <img class="object-image" src="${icon}"/>
                                         <div class="object-tooltip">${tooltip}</div>
                                         </div>`;
-                        }
-
-                        return L.marker(latlng, {
-                            icon: L.divIcon({
-                                className: 'object-divs',
-                                html: objecthtml,
-                            }),
-                            interactive: false,
-                        });
-                    },
-                });
-                if (hadPlacedObjects) placedObjectsLayer.addTo(map);
-                overlays.addOverlay(placedObjectsLayer, "Placed Objects");
-
-                // Room Tags
-                let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
-                if (roomTagsLayer != null) {
-                    overlays.removeLayer(roomTagsLayer);
-                    map.removeLayer(roomTagsLayer);
                 }
-                roomTagsLayer = L.geoJSON(json["roomtag_features"], {
-                    pointToLayer: function (feature, latlng) {
-                        let taghtml = "";
-                        let roomtag = feature.properties;
-                        let icons = [];
-                        let tooltips = [];
-         
-                        for (const tag of roomtag.tags) {
-                            if (tag == "SHELTER") {
-                                tooltips.push("Shelter");
-                                icons.push("Shelter_icon");
-                            } else if (tag == "ANCIENTSHELTER") {
-                                tooltips.push("Ancient Shelter");
-                                icons.push("AncientShelter_icon");
-                            } else if (tag == "GATE") {
-                                tooltips.push("Gate");
-                                icons.push("Gate_icon");
-                            } else if (tag == "SWARMROOM") {
-                                tooltips.push("Swarm Room");
-                                icons.push("SwarmRoom_icon");
-                            } else if (tag == "PERF_HEAVY") {
-                                tooltips.push("Performance Heavy");
-                            } else if (tag == "SCAVOUTPOST") {
-                                tooltips.push("Scavenger Toll");
-                                icons.push("ScavOutpost_icon");
-                            } else if (tag == "SCAVTRADER") {
-                                tooltips.push("Scavenger Merchant");
-                                icons.push("ScavTrader_icon");
-                            } else if (tag == "NOTRACKERS") {
-                                tooltips.push("No Trackers");
-                            } else if (tag == "ARENA") {
-                                tooltips.push("Arena");
-                            } else {
-                                tooltips.push(tag);
-                                icons.push("unknown-white");
-                            }
-                        }
-         
-                        // Put together the HTML
-                        taghtml += "<div class=\"roomtag-entry roomtag-filter\">";
-                        for (const icon of icons) {
-                            taghtml += `<img class="roomtag-image" src="./resources/${icon}.png"/>`;
-                        }
-                        for (const tooltip of tooltips) {
-                            taghtml += `<div class="roomtag-label">${tooltip}</div>`;
-                        }
-                        taghtml += "</div>";
-         
-                        return L.marker(latlng, {
-                            icon: L.divIcon({
-                                className: 'roomtag-divs',
-                                html: taghtml,
-                            }),
-                            interactive: false,
-                        });
-                    },
-                });
-                if (hadRoomTags) roomTagsLayer.addTo(map);
-                overlays.addOverlay(roomTagsLayer, "Room Tags");
 
-                // Zoom to room on rooms loaded
-                let foundRoom = false;
-                if (room != null && roomsLayer != null) {
-                    for (let l of roomsLayer.getLayers()) {
-                        if (l.feature.properties.name == room) {
-                            //map.fitBounds(l.getBounds());
-                            focusRoom(l);
-                            foundRoom = true;
-                            break;
-                        }
+                return L.marker(latlng, {
+                    icon: L.divIcon({
+                        className: 'object-divs',
+                        html: objecthtml,
+                    }),
+                    interactive: false,
+                });
+            },
+        });
+        if (hadPlacedObjects) placedObjectsLayer.addTo(map);
+        overlays.addOverlay(placedObjectsLayer, "放置物品");
+
+        // Room Tags
+        let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
+        if (roomTagsLayer != null) {
+            overlays.removeLayer(roomTagsLayer);
+            map.removeLayer(roomTagsLayer);
+        }
+        roomTagsLayer = L.geoJSON(json["roomtag_features"], {
+            pointToLayer: function (feature, latlng) {
+                let taghtml = "";
+                let roomtag = feature.properties;
+                let icons = [];
+                let tooltips = [];
+
+                for (const tag of roomtag.tags) {
+                    if (tag == "SHELTER") {
+                        tooltips.push("Shelter");
+                        icons.push("Shelter_icon");
+                    } else if (tag == "ANCIENTSHELTER") {
+                        tooltips.push("Ancient Shelter");
+                        icons.push("AncientShelter_icon");
+                    } else if (tag == "GATE") {
+                        tooltips.push("Gate");
+                        icons.push("Gate_icon");
+                    } else if (tag == "SWARMROOM") {
+                        tooltips.push("Swarm Room");
+                        icons.push("SwarmRoom_icon");
+                    } else if (tag == "PERF_HEAVY") {
+                        tooltips.push("Performance Heavy");
+                    } else if (tag == "SCAVOUTPOST") {
+                        tooltips.push("Scavenger Toll");
+                        icons.push("ScavOutpost_icon");
+                    } else if (tag == "SCAVTRADER") {
+                        tooltips.push("Scavenger Merchant");
+                        icons.push("ScavTrader_icon");
+                    } else if (tag == "NOTRACKERS") {
+                        tooltips.push("No Trackers");
+                    } else if (tag == "ARENA") {
+                        tooltips.push("Arena");
+                    } else {
+                        tooltips.push(tag);
+                        icons.push("unknown-white");
                     }
                 }
-                if (!foundRoom) {
-                    if (room != null) {
-                        room = null;
-                        pushState();
-                    }
-                    console.log(`regionLoad err coming from ${loadedDifficulty} to ${pdifficulty}, layers len = ${roomsLayer.getLayers().length}`);
-                    resetFocus();
-                    map.setView([0, 0], -5);
+
+                // Put together the HTML
+                taghtml += "<div class=\"roomtag-entry roomtag-filter\">";
+                for (const icon of icons) {
+                    taghtml += `<img class="roomtag-image" src="./resources/${icon}.png"/>`;
                 }
+                for (const tooltip of tooltips) {
+                    taghtml += `<div class="roomtag-label">${tooltip}</div>`;
+                }
+                taghtml += "</div>";
 
-                loadedDifficulty = pdifficulty;
-                loadedRegion = pregion;
+                return L.marker(latlng, {
+                    icon: L.divIcon({
+                        className: 'roomtag-divs',
+                        html: taghtml,
+                    }),
+                    interactive: false,
+                });
+            },
+        });
+        if (hadRoomTags) roomTagsLayer.addTo(map);
+        overlays.addOverlay(roomTagsLayer, "房间标签");
 
-                // Don't enable certain layers when loaded for the first time
-                if (loadedCount == 1) {
-                    map.removeLayer(placedObjectsLayer);
-                    map.removeLayer(roomTagsLayer);
-                };
-                loadedCount++;
-            }, true);
-
-            if (Object.keys(regions).indexOf(region) != -1) {
-                for (let i = 0; i < slugcats.length; i++) {
-                    document.getElementById("scug-" + slugcats[i]).classList.toggle("hidden", regions[region]["slugcats"].indexOf(slugcats[i].toLowerCase()) == -1);
+        // Zoom to room on rooms loaded
+        let foundRoom = false;
+        if (room != null && roomsLayer != null) {
+            for (let l of roomsLayer.getLayers()) {
+                if (l.feature.properties.name == room) {
+                    //map.fitBounds(l.getBounds());
+                    focusRoom(l);
+                    foundRoom = true;
+                    break;
                 }
             }
+        }
+        if (!foundRoom) {
+            if (room != null) {
+                room = null;
+                pushState();
+            }
+            console.log(`regionLoad err coming from ${loadedDifficulty} to ${pdifficulty}, layers len = ${roomsLayer.getLayers().length}`);
+            resetFocus();
+            map.setView([0, 0], -5);
+        }
+
+        loadedDifficulty = pdifficulty;
+        loadedRegion = pregion;
+
+        // Don't enable certain layers when loaded for the first time
+        if (loadedCount == 1) {
+            map.removeLayer(placedObjectsLayer);
+            map.removeLayer(roomTagsLayer);
+        };
+        loadedCount++;
+        }, true);
+
+        if (Object.keys(regions).indexOf(region) != -1) {
+            for (let i = 0; i < slugcats.length; i++) {
+                document.getElementById("scug-" + slugcats[i]).classList.toggle("hidden", regions[region]["slugcats"].indexOf(slugcats[i].toLowerCase()) == -1);
+            }
+        }
         }
 
         // My weird lisp parsing system for the placed object data
@@ -1516,16 +1546,16 @@
             }
         }
 
-        // Collapseable things
+        // Collapsible things
         var uncollapsed = null;
         var collapsible = document.querySelectorAll(".collapsible");
 
         for (const el of collapsible) {
             // 针对不同的 panel 设置固定的 --hide-pos 值
             if (el.classList.contains("left-panel")) {
-                el.style.setProperty("--hide-pos", "-261.9959716796875px"); // 固定宽度的值
+                el.style.setProperty("--hide-pos", "-262px"); // 固定宽度的值
             } else if (el.classList.contains("right-panel")) {
-                el.style.setProperty("--hide-pos", "-181.9932861328125px"); // 固定宽度的值
+                el.style.setProperty("--hide-pos", "-182px"); // 固定宽度的值
             }
 
             var button = el.querySelector(".collapse-tab");
