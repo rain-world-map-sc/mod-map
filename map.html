@@ -917,8 +917,8 @@
                         });
                     },
                 });
-                if (hadPlacedObjects) placedObjectsLayer.addTo(map);
-                overlays.addOverlay(placedObjectsLayer, "Placed Objects");
+                //if (hadPlacedObjects) placedObjectsLayer.addTo(map);
+                //overlays.addOverlay(placedObjectsLayer, "Placed Objects");
 
                 // Room Tags
                 let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
@@ -983,8 +983,8 @@
                         });
                     },
                 });
-                if (hadRoomTags) roomTagsLayer.addTo(map);
-                overlays.addOverlay(roomTagsLayer, "Room Tags");
+                //if (hadRoomTags) roomTagsLayer.addTo(map);
+                //overlays.addOverlay(roomTagsLayer, "Room Tags");
 
                 // Zoom to room on rooms loaded
                 let foundRoom = false;
