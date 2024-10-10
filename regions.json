@@ -744,5 +744,68 @@
       "Marshland Wastes",
       "Garbage Wastes 2 Electric Boogaloo"
     ]
+  },
+  "CE": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "The Pit",
+    "specificNames": [
+      "The Pit"
+    ]
+  },
+  "FS": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Forest Sanctuary",
+    "specificNames": [
+      "Forest Sanctuary"
+    ]
+  },
+  "IS": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Intake System",
+    "specificNames": [
+      "Intake System"
+    ]
+  },
+  "JW": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "Sea Of Stars",
+    "specificNames": [
+      "Sea Of Stars"
+    ]
+  },
+  "MW": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "The Fragmented Exterior",
+    "specificNames": [
+      "The Fragmented Exterior"
+    ]
+  },
+  "OL": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Looks to the Moon",
+    "specificNames": [
+      "Looks to the Moon"
+    ]
+  },
+  "RP": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "Path Less Taken",
+    "specificNames": [
+      "Path Less Taken"
+    ]
   }
 }
