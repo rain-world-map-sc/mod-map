@@ -807,5 +807,40 @@
     "specificNames": [
       "Path Less Taken"
     ]
+  },
+  "HH": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv",
+      "beacon",
+      "photomaniac",
+      "incandescent",
+      "begonia",
+      "gravelslug"
+    ],
+    "name": "Hallowed Grotto",
+    "specificNames": [
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Hallowed Caves",
+      "Hallowed Grotto",
+      "Hallowed Forest",
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Big Pebbles is watching",
+      "Dark Forest",
+      "Dark Forest",
+      "Hallowed Forest",
+      "Hallowed Forest",
+      "Hallowed Caves"
+    ]
   }
 }
