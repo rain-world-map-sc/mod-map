@@ -840,5 +840,30 @@
       "Hallowed Forest",
       "Hallowed Caves"
     ]
+  },
+  "UF": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Sizzling Sewers",
+    "specificNames": [
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers"
+    ]
   }
 }
