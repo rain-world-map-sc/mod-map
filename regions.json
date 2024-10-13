@@ -647,6 +647,7 @@
       "inv"
     ],
     "name": "Citadel",
+    "cname": "城堡",
     "specificNames": [
       "Citadel",
       "Citadel",
@@ -671,6 +672,7 @@
       "inv"
     ],
     "name": "Bioengineering Center",
+    "cname": "生物工程中心",
     "specificNames": [
       "Bioengineering Center",
       "Bioengineering Center",
@@ -696,6 +698,7 @@
       "inv"
     ],
     "name": "Forsaken Factory",
+    "cname": "遗弃工厂",
     "specificNames": [
       "Forsaken Factory",
       "Forsaken Factory",
@@ -734,6 +737,7 @@
       "inv"
     ],
     "name": "Moonlit Acres",
+    "cname": "月光田地",
     "specificNames": [
       "Moonlit Acres",
       "Moonlit Acres",
@@ -759,6 +763,7 @@
       "inv"
     ],
     "name": "Marshland Wastes",
+    "cname": "沼泽荒原",
     "specificNames": [
       "Marshland Wastes",
       "Marshland Wastes",
@@ -776,6 +781,7 @@
       "begonia"
     ],
     "name": "The Pit",
+    "cname": "矿坑",
     "specificNames": [
       "The Pit"
     ]
@@ -785,6 +791,7 @@
       "droughtwanderer"
     ],
     "name": "Forest Sanctuary",
+    "cname": "森林圣域",
     "specificNames": [
       "Forest Sanctuary"
     ]
@@ -794,6 +801,7 @@
       "droughtwanderer"
     ],
     "name": "Intake System",
+    "cname": "吸入系统",
     "specificNames": [
       "Intake System"
     ]
@@ -803,6 +811,7 @@
       "begonia"
     ],
     "name": "Sea Of Stars",
+    "cname": "群星之海",
     "specificNames": [
       "Sea Of Stars"
     ]
@@ -821,6 +830,7 @@
       "droughtwanderer"
     ],
     "name": "Looks to the Moon",
+    "cname": "仰望皓月",
     "specificNames": [
       "Looks to the Moon"
     ]
@@ -852,6 +862,7 @@
       "gravelslug"
     ],
     "name": "Hallowed Grotto",
+    "cname": "神圣石窟",
     "specificNames": [
       "Hallowed Grotto",
       "Hallowed Grotto",
@@ -882,6 +893,7 @@
       "inv"
     ],
     "name": "Sizzling Sewers",
+    "cname": "蜂鸣水道",
     "specificNames": [
       "Sizzling Sewers",
       "Sizzling Sewers",
