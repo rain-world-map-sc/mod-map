@@ -592,7 +592,6 @@
       "red",
       "rivulet",
       "artificer",
-      "saint",
       "spear",
       "gourmand",
       "inv"
@@ -600,7 +599,6 @@
     "name": "Fog Gulch",
     "cname": "迷雾峡谷",
     "specificNames": [
-      "Fog Gulch",
       "Fog Gulch",
       "Fog Gulch",
       "Fog Gulch",
@@ -635,6 +633,265 @@
       "Steaming Edifice",
       "Steaming Edifice",
       "Steaming Edifice"
+    ]
+  },
+  "UU": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Citadel",
+    "specificNames": [
+      "Citadel",
+      "Citadel",
+      "Citadel",
+      "Citadel",
+      "Citadel",
+      "Citadel",
+      "Citadel",
+      "BRIGHTENED CITADEL"
+    ]
+  },
+  "BI": {
+    "slugcats": [
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "white",
+      "yellow",
+      "red",
+      "inv"
+    ],
+    "name": "Bioengineering Center",
+    "specificNames": [
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center",
+      "Bioengineering Center"
+    ]
+  },
+  "F1": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Forsaken Factory",
+    "specificNames": [
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory",
+      "Forsaken Factory"
+    ]
+  },
+  "HG": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red"
+    ],
+    "name": "Old Hanging Gardens",
+    "specificNames": [
+      "Old Hanging Gardens",
+      "Old Hanging Gardens",
+      "Old Hanging Gardens"
+    ]
+  },
+  "HW": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Moonlit Acres",
+    "specificNames": [
+      "Moonlit Acres",
+      "Moonlit Acres",
+      "Moonlit Acres",
+      "Moonlit Acres",
+      "Moonlit Acres",
+      "Sunlit Sanctuary",
+      "Moonlit Acres",
+      "Moonlit Acres",
+      "Moonlit Acres"
+    ]
+  },
+  "ML": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Marshland Wastes",
+    "specificNames": [
+      "Marshland Wastes",
+      "Marshland Wastes",
+      "Marshland Wastes",
+      "Marshland Wastes",
+      "Marshland Wastes",
+      "Forgotten Tundra",
+      "Marshland Wastes",
+      "Marshland Wastes",
+      "Garbage Wastes 2 Electric Boogaloo"
+    ]
+  },
+  "CE": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "The Pit",
+    "specificNames": [
+      "The Pit"
+    ]
+  },
+  "FS": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Forest Sanctuary",
+    "specificNames": [
+      "Forest Sanctuary"
+    ]
+  },
+  "IS": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Intake System",
+    "specificNames": [
+      "Intake System"
+    ]
+  },
+  "JW": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "Sea Of Stars",
+    "specificNames": [
+      "Sea Of Stars"
+    ]
+  },
+  "MW": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "The Fragmented Exterior",
+    "specificNames": [
+      "The Fragmented Exterior"
+    ]
+  },
+  "OL": {
+    "slugcats": [
+      "droughtwanderer"
+    ],
+    "name": "Looks to the Moon",
+    "specificNames": [
+      "Looks to the Moon"
+    ]
+  },
+  "RP": {
+    "slugcats": [
+      "begonia"
+    ],
+    "name": "Path Less Taken",
+    "specificNames": [
+      "Path Less Taken"
+    ]
+  },
+  "HH": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv",
+      "beacon",
+      "photomaniac",
+      "incandescent",
+      "begonia",
+      "gravelslug"
+    ],
+    "name": "Hallowed Grotto",
+    "specificNames": [
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Hallowed Caves",
+      "Hallowed Grotto",
+      "Hallowed Forest",
+      "Hallowed Grotto",
+      "Hallowed Grotto",
+      "Big Pebbles is watching",
+      "Dark Forest",
+      "Dark Forest",
+      "Hallowed Forest",
+      "Hallowed Forest",
+      "Hallowed Caves"
+    ]
+  },
+  "UF": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "saint",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Sizzling Sewers",
+    "specificNames": [
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers",
+      "Sizzling Sewers"
     ]
   }
 }
