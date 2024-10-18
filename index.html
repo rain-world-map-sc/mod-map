@@ -62,13 +62,33 @@
             /* menu lightgray */
         }
 
+        .toggleLanguage-ckb {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #toggleLanguage {
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+
+        #toggleLanguage~label {
+            left: 4px;
+            top: -6px;
+        }
+
+        #toggleLanguage::before {
+            font-size: 1rem;
+        }
+
         #regionlist {
             margin-left: auto;
             margin-right: auto;
             margin-top: 0.8em;
             margin-bottom: 0.8em;
             max-width: 90vw;
-            
+
             display: grid;
             grid-template-columns: repeat(var(--cols), auto);
             justify-items: center;
@@ -90,7 +110,6 @@
             margin: 4px;
             position: relative;
         }
-
     </style>
 
 </head>
@@ -100,11 +119,33 @@
         <div class="rw-title">Rain World</div>
         <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">我迷路了...</div>
         <div id="regionlist"></div>
-		<input type="hidden" name="slugcat" value="white" required />
+        <input type="hidden" name="slugcat" value="white" required />
+
+        <div class="toggleLanguage-ckb">
+            <input type="checkbox" class="rw-ui rw-ui-ckb toggleLanguage-ckb" id="toggleLanguage"
+                onclick="MenuToggleLanguage()">
+            <label class="rw-text">显示中文</label>
+        </div>
 
         <script>
             let regions = {};
+            let displayChinese = false;  // 控制是否显示中文的标记
             const gap = 4;
+
+            // 页面加载时读取用户的语言选择
+            window.addEventListener("load", () => {
+                displayChinese = localStorage.getItem('displayChinese') === 'true';
+                const checkbox = document.getElementById("toggleLanguage");
+                checkbox.checked = displayChinese;  // 设置复选框状态
+                renderRegions();  // 根据语言选择渲染区域
+            });
+
+            // 切换语言显示并保存选择
+            function MenuToggleLanguage() {
+                displayChinese = document.getElementById("toggleLanguage").checked;
+                localStorage.setItem('displayChinese', displayChinese);  // 保存用户选择
+                renderRegions();  // 更新区域显示的语言
+            }
 
             function organizeColumns() {
                 const buttons = document.getElementsByClassName("region-button");
@@ -137,26 +178,40 @@ Possible columns: ${maxColumns}
 Possible rows: ${idealMaxRows}
 Ideal number of columns: ${idealColumns}`);
             }
-            window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("regions.json", function(json) {
-                console.log(json);
+
+            getJsonObject("regions.json", function (json) {
                 regions = json;
+                renderRegions();
+                organizeColumns();
+            }, true);
+
+            // 渲染区域按钮
+            function renderRegions() {
                 let html = "";
                 const regionListSorted = Object.keys(regions).sort((a, b) => regions[a]["name"].toLowerCase().localeCompare(regions[b]["name"].toLowerCase()));
                 for (const r of regionListSorted) {
-                    html += '<button class="region-button rw-ui rw-text" name="region" value="' + r + '">' + regions[r]["name"].toUpperCase() + ' (' + r + ')</button>';
+                    const region = regions[r];
+
+                    // 根据语言选择显示区域的中文名或英文名
+                    const regionName = displayChinese ? (region["cname"] || region["name"] || "UNKNOWN") : (region["name"] || "UNKNOWN");
+
+                    html += `<button class="region-button rw-ui rw-text" name="region" value="${r}">
+                    ${regionName.toUpperCase()} (${r})
+                    </button>`;
                 }
                 document.getElementById('regionlist').innerHTML = html;
-                organizeColumns();
-            }, true);
+                organizeColumns();  // 渲染后调整列布局
+            }
+
+            window.addEventListener("resize", () => organizeColumns());  // 监听窗口大小变化
         </script>
     </form>
     <div id="main-menu-footer"><a href="https://github.com/rain-world-map-sc/mod-map" target="_blank">GitHub</a> 上的代码 |
-		最初由 <a href="https://github.com/henpemaz/" target="_blank">Henpemaz</a> 制作 |
-		由 <a href="https://github.com/Dual-Iron/" target="_blank">Dual</a> 移植 |
-		由 <a href="https://github.com/NobleCat57/" target="_blank">JuliaCat</a> 改进 |
-		基于 <a href="https://github.com/alduris/" target="_blank">Alduris</a> 改进版本 |
+        最初由 <a href="https://github.com/henpemaz/" target="_blank">Henpemaz</a> 制作 |
+        由 <a href="https://github.com/Dual-Iron/" target="_blank">Dual</a> 移植 |
+        由 <a href="https://github.com/NobleCat57/" target="_blank">JuliaCat</a> 改进 |
+        基于 <a href="https://github.com/alduris/" target="_blank">Alduris</a> 改进版本 |
         由 <a href="https://github.com/xiowo" target="_blank">MortalCat</a> 翻译和修改 |
 		<a href="https://store.steampowered.com/app/312520/Rain_World/" target="_blank">雨世界</a> 是 <a href="https://twitter.com/VideocultMedia" target="_blank">Videocult</a> 的财产
     </div>
