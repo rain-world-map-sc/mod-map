@@ -338,7 +338,7 @@
       "inv"
     ],
     "name": "The radiosphere",
-    "cname": "无线电领域",
+    "cname": "无线电层",
     "specificNames": [
       "The radiosphere",
       "The radiosphere",
@@ -718,6 +718,7 @@
       "red"
     ],
     "name": "Old Hanging Gardens",
+    "cname": "旧空中花园",
     "specificNames": [
       "Old Hanging Gardens",
       "Old Hanging Gardens",
@@ -821,6 +822,7 @@
       "droughtwanderer"
     ],
     "name": "The Fragmented Exterior",
+    "cname": "破碎外缘",
     "specificNames": [
       "The Fragmented Exterior"
     ]
@@ -840,6 +842,7 @@
       "begonia"
     ],
     "name": "Path Less Taken",
+    "cname": "少走的路",
     "specificNames": [
       "Path Less Taken"
     ]
