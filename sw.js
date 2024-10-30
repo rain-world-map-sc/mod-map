@@ -141,11 +141,6 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // 排除 /mod-map/ 路径
-    if (requestURL.pathname.startsWith('/mod-map/')) {
-        return; // 跳过 /mod-map/ 路径的缓存
-    }
-
     // 仅处理 HTTP 和 HTTPS 请求
     if (requestURL.protocol !== 'http:' && requestURL.protocol !== 'https:') {
         return;
