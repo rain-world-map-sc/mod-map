@@ -535,7 +535,6 @@
 
         getJsonObject("slugcats.json", function (json) {
             slugcats = json;
-            renderSlugcats();
         }, false);
 
         getJsonObject("placedobjectsdata.json", function (json) { poRules = json; }, false);
@@ -557,7 +556,6 @@
             document.getElementById('region-select').innerHTML = html;
         }
 
-        function renderSlugcats() {
             var html = "";
             for (const slugcatName of slugcats) {
                 html += `
@@ -565,7 +563,6 @@
     <input type="radio" class="rw-ui" name="difficulties" onclick="selectDifficulty('${slugcatName}');" value="${slugcatName}"${slugcatName == difficulty ? ' checked' : ''} autocomplete="off">
     <img src="./resources/slugcats/${slugcatName}.png">
 </label>`;
-            }
             document.getElementById('scug-selector').innerHTML = html;
         }
 
