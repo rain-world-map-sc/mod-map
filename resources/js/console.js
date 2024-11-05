@@ -10,9 +10,9 @@ queueMicrotask(async () => {
         try {
             const response = await fetch('./version.json');
             const data = await response.json();
-            return data.cacheVersion; // 假设 JSON 文件中的字段是 cacheVersion
+            return data.cacheVersion;
         } catch (error) {
-            console.error("Failed to fetch version:", error);
+            console.error("版本获取失败:", error);
             return "未知版本";
         }
     }
@@ -44,7 +44,7 @@ queueMicrotask(async () => {
         "已上线",
         dnum,
         "天",
-        `©2024 By R-W-M-SC | 地图版本: ${version}` // 插入版本号
+        `©2024 By R-W-M-SC | 地图版本: ${version}`
     ];
     const ascll2 = [`NCC2-036`, `业力等级识别成功，允许访问.`, `您的业力: `, `⨂`];
 
@@ -77,7 +77,7 @@ queueMicrotask(async () => {
     setTimeout(
         console.warn.bind(
             console,
-            "%c ⚡ Powered by R-W-M %c 你正在访问雨世界地图",
+            "%c ⚡ Powered by R-W-M %c 你正在访问雨世界模组地图",
             "color:white; background-color:#f0ad4e",
             ""
         )
@@ -86,6 +86,6 @@ queueMicrotask(async () => {
     setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
 
     setTimeout(
-        console.warn.bind(console, "%c SS_AI-782 %c 你现在正处于五块卵石的监控中.", "color:white; background-color:#d9534f", "")
+        console.warn.bind(console, "%c SS_AI-782 %c 你现在正处于追逐清风的监控中.", "color:white; background-color:#d9534f", "")
     );
 });
