@@ -865,5 +865,28 @@
       "Sizzling Sewers",
       "Sizzling Sewers"
     ]
+  },
+  "PV": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Preservatory",
+    "specificNames": [
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory"
+    ]
   }
 }
