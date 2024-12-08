@@ -888,5 +888,18 @@
       "Preservatory",
       "Preservatory"
     ]
+  },
+  "WP": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red"
+    ],
+    "name": "Weakened Platform",
+    "specificNames": [
+      "Weakened Platform",
+      "Weakened Platform",
+      "Weakened Platform"
+    ]
   }
 }
