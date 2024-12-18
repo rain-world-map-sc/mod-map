@@ -908,5 +908,41 @@
       "Sizzling Sewers",
       "Sizzling Sewers"
     ]
+  },
+  "PV": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red",
+      "rivulet",
+      "artificer",
+      "spear",
+      "gourmand",
+      "inv"
+    ],
+    "name": "Preservatory",
+    "specificNames": [
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory",
+      "Preservatory"
+    ]
+  },
+  "WP": {
+    "slugcats": [
+      "white",
+      "yellow",
+      "red"
+    ],
+    "name": "Weakened Platform",
+    "specificNames": [
+      "Weakened Platform",
+      "Weakened Platform",
+      "Weakened Platform"
+    ]
   }
 }
