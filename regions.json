@@ -921,6 +921,7 @@
       "inv"
     ],
     "name": "Preservatory",
+    "cname": "防腐室",
     "specificNames": [
       "Preservatory",
       "Preservatory",
@@ -938,7 +939,8 @@
       "yellow",
       "red"
     ],
-    "name": "Weakened Platform",
+    "name": "Weakened Platform",    
+    "cname": "衰弱平台",
     "specificNames": [
       "Weakened Platform",
       "Weakened Platform",
