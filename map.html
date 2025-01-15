@@ -22,8 +22,6 @@
     <link rel="manifest" href="./manifest.json">
     <script src="./resources/js/app.js"></script>
 
-    <script defer src="https://umami.xiowo.net/script.js" data-website-id="e8919a0f-ae5e-40c1-b238-291427a33ac3"></script>
-
     <style id="mapstyle">
         body,
         html {
@@ -372,7 +370,7 @@
 
     <div class="side-panel left-panel rw-text collapsible collapsed">
         <div style="padding-left: 8px; padding-bottom: 8px;">
-            <a href="../rw-map.html#ModMap" class="rw-text">&lt; 返回索引</a>
+            <a href="/" class="rw-text">&lt; 返回索引</a>
             <hr />
             <span>区域</span>
             <span class="toggleLanguage-ckb">
@@ -407,7 +405,7 @@
 
         <div class="resources">
             <input type="radio" id="option2" name="options" value="2">
-            <label for="option2"> xiowo(cf加速)</label>
+            <label for="option2"> cf-works加速</label>
         </div>
 
         <div class="collapse-tab"></div>
@@ -556,9 +554,9 @@
             document.getElementById('region-select').innerHTML = html;
         }
 
-            var html = "";
-            for (const slugcatName of slugcats) {
-                html += `
+        var html = "";
+        for (const slugcatName of slugcats) {
+            html += `
 <label class="difficulty-btn" id="scug-${slugcatName}">
     <input type="radio" class="rw-ui" name="difficulties" onclick="selectDifficulty('${slugcatName}');" value="${slugcatName}"${slugcatName == difficulty ? ' checked' : ''} autocomplete="off">
     <img src="./resources/slugcats/${slugcatName}.png">
@@ -762,8 +760,8 @@
                 console.log("当前地图资源来源: GitHub");
             } else if (selectedValue === '2') {
                 document.getElementById('option2').checked = true;
-                baseUrl = 'https://rwmm.xiowo.us.kg';
-                console.log("当前地图资源来源: xiowo(cf加速)");
+                baseUrl = 'https://api.xiowo.us.kg/https://alduris.github.io';
+                console.log("当前地图资源来源: cf-works加速");
             }
         } else {
             document.getElementById('option1').checked = true;
@@ -786,7 +784,7 @@
         document.getElementById('option2').addEventListener('change', function () {
             if (this.checked) {
                 saveSelectedValue('2');
-                baseUrl = 'https://rwmm.xiowo.us.kg';
+                baseUrl = 'https://api.xiowo.us.kg/https://alduris.github.io';
                 location.reload();
             }
         });
