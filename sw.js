@@ -20,7 +20,7 @@ let cacheVersion = ''; // 初始未定义默认版本号
 // 定义需要过滤的域名，资源文件不会被缓存或拦截
 const blockedDomains = [
     'alduris.github.io',
-    'rwmm.xiowo.us.kg',
+    'api.xiowo.us.kg',
 ];
 
 // 从 caches 中读取 cacheVersion
